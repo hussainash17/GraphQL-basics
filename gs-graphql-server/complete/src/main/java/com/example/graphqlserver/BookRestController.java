@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookRestController {
 
     @GetMapping
-    public String test() {
-        return "Hi there from graphql server";
+    public Book test() {
+        Book book = Book.getById("book-2");
+        Author author = Author.getById(book.authorId());
+        return book;
     }
 }
